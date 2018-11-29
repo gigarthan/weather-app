@@ -1,0 +1,38 @@
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Max Temperature</td>
+      <td>{{ weatherData.maxTemp | default:'---' }}</td>
+    </tr>
+    <tr>
+      <td>Min Temperature</td>
+      <td>{{ weatherData.minTemp | default:'---' }}</td>
+    </tr>
+    <tr>
+      <td>Wind Speed</td>
+      <td>{{ weatherData.windSpeed | default:'---' }}</td>
+    </tr>
+    <tr>
+      <td>Humidity</td>
+      <td>{{ weatherData.humidity | default:'---' }}</td>
+    </tr>
+    <tr>
+      <td>Sea Level</td>
+      <td>{{ weatherData.seaLevel | default:'---' }}</td>
+    </tr>
+    <tr>
+      <td>Weather Description</td>
+      <td>{{ weatherData.weatherDesc | default:'---' }}</td>
+    </tr>
+    <tr>
+      <td>Wind Degree</td>
+      <td>{{ weatherData.windDegree | default:'---' }}</td>
+    </tr>
+  </tbody>
+</table>
