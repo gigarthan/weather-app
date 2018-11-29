@@ -1,3 +1,24 @@
 page-home {
+    .center {
+        text-align: center;
+    }
 
+    .flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 100px;
+    }
+
+    .flex button {
+        flex: 1;
+        height: 100%;
+        margin: 0 !important;
+        color: #fff;
+        background-color: cornflowerblue;
+    }
+
+    .flex button:hover {
+        background-color: darkblue;
+    }
 }
