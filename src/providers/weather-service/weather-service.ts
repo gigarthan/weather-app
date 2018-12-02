@@ -69,4 +69,34 @@ export class WeatherServiceProvider {
     });
   }
 
+  getHourlyForecast(coordinates: Coordinate, rate: string): Promise<WeatherModel> {
+
+    let position = {
+      '3' : 0,
+      '6' : 1,
+      '9' : 2,
+      '12': 3 
+    }
+
+    return new Promise ( (resolve, reject) => {
+      this.http.get<any>(`https://api.openweathermap.org/data/2.5/forecast/?lat=${coordinates.lat}&lon=${coordinates.long}&cnt=4&units=metric&appid=e47f6ea4214e778128a3eac7ae501fcb`)
+      .subscribe(resp => {
+        /** resp returns list of 7 day weather data. we need to take the 2nd item in the list */
+        let data = resp.list[position[rate]];
+        
+        let weatherData = new WeatherModel();
+        weatherData.maxTemp      = data.main.temp_max;
+        weatherData.minTemp      = data.main.temp_min;
+        weatherData.humidity     = data.main.humidity;
+        weatherData.windDegree   = data.wind.deg;
+        weatherData.windSpeed    = data.wind.speed;
+        weatherData.weatherDesc  = data.weather[0].description;
+        weatherData.seaLevel     = data.main.pressure;
+
+        return resolve(weatherData);
+        
+      });
+    });
+  }
+
 }
