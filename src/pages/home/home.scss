@@ -1,24 +1,54 @@
 page-home {
-    .center {
-        text-align: center;
-    }
+  .center {
+    text-align: center;
+  }
 
-    .flex {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        height: 100px;
-    }
+  .flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100px;
+  }
 
-    .flex button {
-        flex: 1;
-        height: 100%;
-        margin: 0 !important;
-        color: #fff;
-        background-color: cornflowerblue;
-    }
+  .flex button {
+    flex: 1;
+    height: 100%;
+    margin: 0 !important;
+    color: #fff;
+    background-color: #29B6F6;
+  }
 
-    .flex button:hover {
-        background-color: darkblue;
+  .flex button:active {
+    background-color: #0288D1;
+  }
+
+  .basic-detail-wrapper {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+
+    ion-col {
+      span {
+        display: block;
+        margin-left: 10%;
+        color: #a5a3a3;
+      }
     }
+  }
+
+  .range-bar {
+    border-radius: 20px;
+  }
+
+  .range-knob-handle {
+    margin-left: -8px !important;
+  }
+
+  .range-knob-max {
+    margin-left: -35px !important;
+  }
+
+  ion-icon {
+      font-size: 2em !important;
+  }
 }
