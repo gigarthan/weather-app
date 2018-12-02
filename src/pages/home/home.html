@@ -1,11 +1,59 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Weather App
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  
-</ion-content>
+<ion-grid padding fixed>
+  <ion-row>
+    <ion-col col-12>
+      <ion-title class="center">Weather App</ion-title>
+    </ion-col>
+  </ion-row>
+  <ion-row class="basic-detail-wrapper">
+    <ion-col col-5 padding>
+      <div><h5>Country :</h5></div>
+      <span>{{ country | default: "N/A" }}</span>
+    </ion-col>
+    <ion-col col-5 padding>
+      <div><h5>Coordinates :</h5></div>
+      <span>
+        {{ displayCoordinates.lat | default: "N/A" }} ,
+        {{ displayCoordinates.long | default: "N/A" }}
+      </span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-10 offset-1>
+      <weather-table [weatherData]="weatherData"></weather-table>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12 padding class="flex">
+      <button
+        debounce-click
+        (debounceClick)="loadWeather()"
+        [debounceTime]="500"
+      >
+        <div><ion-icon name="person"></ion-icon></div>
+        Today
+      </button>
+      <button
+        debounce-click
+        (debounceClick)="loadWeatherTomorrow()"
+        [debounceTime]="500"
+      >
+        <div><ion-icon name="contact"></ion-icon></div>
+        Tomorrow
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-range
+        [(ngModel)]="hourlyForecast"
+        (ionChange)="hourlyRange($event)"
+        debounce="500"
+        min="0"
+        max="12"
+        step="3"
+        snap="true"
+        pin="true"
+      ></ion-range>
+    </ion-col>
+  </ion-row>
+</ion-grid>
