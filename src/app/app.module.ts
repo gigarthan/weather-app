@@ -12,6 +12,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { WeatherServiceProvider } from '../providers/weather-service/weather-service';
 import { Geolocation } from '@ionic-native/geolocation';
 import { HttpClientModule } from '@angular/common/http';
+import { DirectivesModule } from '../directives/directives.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     PipesModule,
     ComponentsModule,
     HttpClientModule,
+    DirectivesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
